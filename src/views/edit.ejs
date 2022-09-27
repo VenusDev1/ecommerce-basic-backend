@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venus Dev</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+  <% if(product) { %>
+
+  <div class="container">
+    <h1>EDITAR PRODUCTO</h1>
+  </div>
+  <div class="container">
+    <form action="/update/<%= product.id %>?_method=PUT" method="POST">
+    <!-- <form action="/update"?_method=PUT" _method="put"> -->
+      <input id="id" name="id" value="<%= product.id %> "  hidden>
+      <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" class="form-control" id="name" name="name" value="<%= product.name %> ">
+      </div>
+      <div class="form-group">
+        <label for="image">image</label>
+        <input type="text" class="form-control" id="image" name="image" value="<%= product.image %> ">
+      </div>
+      <div class="form-group">
+        <label for="price">price</label>
+        <input type="text" class="form-control" id="price" name="price" value="<%= product.price %> ">
+      </div>
+      <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" id="description" name="description" value="<%= product.description %> ">
+      </div>
+      <div class="form-group">
+        <label for="stock">stock</label>
+        <input type="text" class="form-control" id="stock" name="stock" value="<%= product.stock %> ">
+      </div>
+      <div class="form-group">
+        <label for="categorie">categorie</label>
+        <input type="text" class="form-control" id="categorie" name="categorie" value="<%= product.categorie %> ">
+      </div>
+      <div class="form-group">
+        <label for="discount">discount</label>
+        <input type="text" class="form-control" id="discount" name="discount" value="<%= product.discount %>">
+      </div>
+      <div class="form-group">
+        <label for="brand">brand</label>
+        <input type="text" class="form-control" id="brand" name="brand" value="<%= product.brand %> ">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a class="btn btn-primary" href="/products" role="button">Cancelar</a>
+    </form>
+  </div>
+  <% } %> 
+</body>
+
+</html>

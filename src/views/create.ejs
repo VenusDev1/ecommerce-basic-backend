@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venus Dev</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <h1>CREAR UN NUEVO PRODUCTO</h1>
+  </div>
+  <div class="container">
+    <form action="/save" method="post">
+      <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label for="image">image</label>
+        <input type="text" class="form-control" id="image" name="image" placeholder="Enter image">
+      </div>
+      <div class="form-group">
+        <label for="price">price</label>
+        <input type="text" class="form-control" id="price" name="price" placeholder="Enter price">
+      </div>
+      <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" id="description" name="description" placeholder="Enter description">
+      </div>
+      <div class="form-group">
+        <label for="stock">stock</label>
+        <input type="text" class="form-control" id="stock" name="stock" placeholder="Enter stock">
+      </div>
+      <div class="form-group">
+        <label for="categorie">categorie</label>
+        <input type="text" class="form-control" id="categorie" name="categorie" placeholder="Enter categorie">
+      </div>
+      <div class="form-group">
+        <label for="discount">discount</label>
+        <input type="text" class="form-control" id="discount" name="discount" placeholder="Enter discount">
+      </div>
+      <div class="form-group">
+        <label for="brand">brand</label>
+        <input type="text" class="form-control" id="brand" name="brand" placeholder="Enter brand">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a class="btn btn-primary" href="/products" role="button">Cancelar</a>
+    </form>
+  </div>
+</body>
+
+</html>
