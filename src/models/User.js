@@ -28,9 +28,6 @@ module.exports = (sequelize) => {
     },
     password: {
         type: DataTypes.STRING(64),
-        validate: {
-          is: /^[0-9a-f]{64}$/i
-      }
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
