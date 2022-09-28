@@ -14,7 +14,7 @@ async function createUser(req, res) {
             username,
             password
         })
-        res.send('Usuario creado correctamente!')
+         res.redirect('/users');
     } catch (error) {
         res.send(error)
     }

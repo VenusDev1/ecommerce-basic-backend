@@ -5,6 +5,7 @@ const { createProduct } = require('../controllers/Products/createProduct')
 const { updateProduct } = require('../controllers/Products/updateProduct')
 const { deleteProduct } = require('../controllers/Products/deleteProduct') 
 const { createUser } = require('../controllers/User/createUser')
+const { getAllUsers } = require('../controllers/User/getAllUsers')
 
 const router = Router();
 
@@ -30,13 +31,14 @@ router.put('/update/:id', updateProduct)
 
 router.get('/delete/:idProduct', deleteProduct)
 
-router.post('/user', createUser)
-router.get('/users', (req, res) => {
-    res.render('User/home')
-})
+router.get('/users', getAllUsers)
+
 router.get('/users/signup', (req, res) => {
     res.render('User/signup')
 })
+
+router.post('/user', createUser)
+
 router.get('/users/login', (req, res) => {
     res.render('User/login')
 })
