@@ -21,11 +21,9 @@ module.exports = (sequelize) => {
     },
     celphone: {
       type: DataTypes.BIGINT,
-      allowNull: true,
     },
     picture: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
