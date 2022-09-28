@@ -1,4 +1,4 @@
-const { Product } = require('../db')
+const { Product } = require('../../db')
 
 async function deleteProduct(req, res) {
     const {idProduct} = req.params
@@ -13,6 +13,8 @@ async function deleteProduct(req, res) {
         console.log(error)
     }
 }
+
+
 
 module.exports = {
     deleteProduct
