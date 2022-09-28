@@ -7,14 +7,29 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
     },
-    picture: {
-      type: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING(64),
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
-      validate: { isEmail: true },
+      validate: {
+        isEmail: true
+      },
       allowNull: false,
       unique: true
+    },
+    celphone: {
+      type: DataTypes.BIGINT,
+      allowNull: true,
+    },
+    picture: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     },
     username: {
       type: DataTypes.STRING,
@@ -25,9 +40,6 @@ module.exports = (sequelize) => {
           mensaje: "El usuario tiene que tener 2 caracteres como minimo"
         }
       }
-    },
-    password: {
-        type: DataTypes.STRING(64),
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,

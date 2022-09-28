@@ -3,7 +3,6 @@ const { User } = require('../../db')
 async function createUser(req, res) {
     let {
         name,
-        picture,
         email,
         username,
         password
@@ -11,7 +10,6 @@ async function createUser(req, res) {
     try {
         await User.create({
             name,
-            picture,
             email,
             username,
             password

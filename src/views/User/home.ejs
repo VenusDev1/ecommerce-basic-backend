@@ -10,11 +10,18 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="https://landing-page-front-ib8v.vercel.app/" target="_blank">
+            <img src="/public/images/LogoVenusLight.png" alt="logo venus" width={300} height={80} >
+          </a>
+        </div>
+    </nav>
     <div class="container">
 
         <br>
         <br>
-        <a href="/createProduct" type="button" class="btn btn-primary">Crear un nuevo producto</a>
+        <a href="/createProduct" type="button" class="btn btn-primary">Crear un nuevo Usuario</a>
         <br>
         <br>
         <table class="table">
@@ -32,24 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% for( let i=0; i < productos.length; i++ ) { %>
-                    <tr>
-
-                        <th scope="row"><%= productos[i].id %></th>
-                        <td><%= productos[i].name %></td>
-                        <td><%= productos[i].image %></td>
-                        <td><%= productos[i].price %></td>
-                        <td><%= productos[i].description %></td>
-                        <td><%= productos[i].stock %></td>
-                        <td><%= productos[i].categorie %></td>
-                        <td><%= productos[i].discount %>%</td>
-                        <td><%= productos[i].brand %></td>
-                        <td>
-                            <a href="/edit/<%= productos[i].id %>" type="button" class="btn btn-primary">Editar</a>
-                            <a href="/delete/<%= productos[i].id %>" type="button" class="btn btn-primary">Eliminar</a>
-                        </td>
-                    </tr>
-                    <% } %>
+ 
             </tbody>
         </table>
     </div>
