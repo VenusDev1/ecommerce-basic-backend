@@ -19,7 +19,7 @@ async function updateProduct(req, res) {
                 id: id
             }
         }) 
-         res.redirect('/products');
+        res.send('Producto actualizado!')
     } catch (error) {
         res.send(error)
     }

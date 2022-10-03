@@ -1,14 +1,14 @@
-const { Product } = require('../../db')
+const { User } = require('../../db')
 
-async function deleteProduct(req, res) {
+async function deleteUser(req, res) {
     const {id} = req.params
     try {
-        await Product.destroy({
+        await User.destroy({
             where: {
                 id: id
             }
         })
-        res.send('Producto eliminado')
+        res.send('Usuario eliminado!')
     } catch (error) {
         console.log(error)
     }
@@ -17,5 +17,5 @@ async function deleteProduct(req, res) {
 
 
 module.exports = {
-    deleteProduct
+    deleteUser
 }
