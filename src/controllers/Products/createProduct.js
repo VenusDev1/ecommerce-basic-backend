@@ -23,7 +23,7 @@ async function createProduct(req, res) {
             discount,
             brand,
         })
-        res.redirect('/products');
+        res.send('Producto creado!')
     } catch (error) {
         res.status(400).send(error)
     }

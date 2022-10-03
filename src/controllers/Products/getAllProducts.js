@@ -3,7 +3,7 @@ const { Product } = require('../../db');
 async function getAllProducts(req, res) {
     try {
         let allProducts = await Product.findAll()
-         res.render('Products/home', {productos:allProducts});
+        res.send(allProducts)
     } catch (error) {
         console.log(error)
     }

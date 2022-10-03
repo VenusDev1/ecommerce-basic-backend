@@ -1,14 +1,14 @@
 const { Product } = require('../../db')
 
 async function deleteProduct(req, res) {
-    const {idProduct} = req.params
+    const {id} = req.params
     try {
         await Product.destroy({
             where: {
-                id: idProduct
+                id: id
             }
         })
-         res.redirect('/products');
+        res.send('Producto eliminado')
     } catch (error) {
         console.log(error)
     }

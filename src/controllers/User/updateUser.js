@@ -1,21 +1,28 @@
 const { User } = require('../../db')
+var bcrypt = require('bcryptjs');
+var salt = bcrypt.genSaltSync(10);
+
 
 async function updateUser(req, res) {
-    const {idUser} = req.params
-    const {name, email, username, password} = req.body
+    const {id} = req.params
+    let {name, email, username} = req.body
+    let password = req.body.password
 
     try {
-        await User.update({
-            name, 
-            email, 
-            username, 
-            password
-        }, {
+        if(password) {
+            let newPass = await bcrypt.hash(password, salt)
+            let userUpdate = await User.update({
+                name, 
+                email, 
+                username, 
+                password: newPass
+            }, {
             where: {
-                id: idUser
+                id: id
             }
         }) 
-         res.redirect('/users');
+        res.send('Usuario actualizado!')
+    }
     } catch (error) {
         res.send(error)
     }

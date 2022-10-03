@@ -16,8 +16,9 @@ server.set('view engine', 'ejs');
 
 server.name = 'API';
 
-// server.use(express.urlencoded({extended:false}))
-// server.use(express(json))
+
+server.use(express.urlencoded({extended:false}))
+server.use(express(json))
 
 server.use(methodOverride("_method"))
 

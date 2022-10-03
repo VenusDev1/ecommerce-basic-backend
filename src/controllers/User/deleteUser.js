@@ -1,14 +1,14 @@
 const { User } = require('../../db')
 
 async function deleteUser(req, res) {
-    const {idUser} = req.params
+    const {id} = req.params
     try {
         await User.destroy({
             where: {
-                id: idUser
+                id: id
             }
         })
-         res.redirect('/users');
+        res.send('Usuario eliminado!')
     } catch (error) {
         console.log(error)
     }
