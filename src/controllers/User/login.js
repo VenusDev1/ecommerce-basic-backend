@@ -1,23 +1,28 @@
 const { User } = require('../../db')
 var bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
+const { jwtTokens } = require('../../utils/jwt-helper')
 
 async function login(req, res) {
-    let {email, password} = req.body
-    try{
+    let { email, password } = req.body
+    try {
+        // Email check
         let userEmail = await User.findOne({
             where: {
-                email:email
+                email: email
             }
         })
-        if (userEmail) {
-            let userPass = bcrypt.compare(password, userEmail.password)
-            if(userPass) {
-                res.send("Usuario logueado correctamente")
-            } else {
-                res.send("Algo salió mal")
-            }
+        if (!userEmail) {
+            res.send('El email ingresado es incorrecto')
         }
-    } catch(error) {
+        // Password check
+        let userPass = bcrypt.compare(password, userEmail.password)
+        if (!userPass) {
+            res.send("Password incorrecta")
+        }
+        let tokens = jwtTokens(userEmail)
+        res.json(tokens)
+    } catch (error) {
         res.send(error)
     }
 }
