@@ -4,7 +4,7 @@ var salt = bcrypt.genSaltSync(10);
 
 async function createUser(req, res) {
     try {
-    let {name, email, celphone, picture, isAdmin, isSuperAdmin, username } = req.body
+    let {name, email, celphone, picture, isAdmin, superAdmin, username } = req.body
     let password = req.body.password
 
     if(password) {
@@ -17,7 +17,7 @@ async function createUser(req, res) {
            celphone,
            picture,
            isAdmin,
-           isSuperAdmin,
+           superAdmin,
         })
         res.send(newUser)
     }
