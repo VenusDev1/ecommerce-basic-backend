@@ -13,9 +13,15 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
     },
-    password: {
-      type: DataTypes.STRING(64),
-      allowNull: false,
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+      validate: {
+        len: {
+          args: [3, 255],
+          mensaje: "El usuario tiene que tener 2 caracteres como minimo"
+        }
+      }
     },
     email: {
       type: DataTypes.STRING,
@@ -24,6 +30,10 @@ module.exports = (sequelize) => {
       },
       allowNull: false,
       unique: true
+    },
+    password: {
+      type: DataTypes.STRING(64),
+      allowNull: false,
     },
     celphone: {
       type: DataTypes.BIGINT,
@@ -34,16 +44,6 @@ module.exports = (sequelize) => {
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    },
-    username: {
-      type: DataTypes.STRING,
-      unique: true,
-      validate: {
-        len: {
-          args: [3, 255],
-          mensaje: "El usuario tiene que tener 2 caracteres como minimo"
-        }
-      }
     },
     superAdmin: {
       type: DataTypes.BOOLEAN,
