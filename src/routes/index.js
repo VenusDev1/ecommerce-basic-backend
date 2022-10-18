@@ -4,8 +4,15 @@ const { createProduct } = require('../controllers/Products/createProduct')
 const { updateProduct } = require('../controllers/Products/updateProduct')
 const { deleteProduct } = require('../controllers/Products/deleteProduct') 
 const { authenticateTokenAdmin, authenticateTokenSuperAdmin } = require('../utils/jwt-helper')
-
 const usersRoute = require ('./user');
+
+// IMPORTACIONES DE MERCADO PAGO
+
+const {payment} = require('../controllers/Payments/payments')
+const {getOrder} = require('../controllers/Payments/Orders/getOrder')
+const { createOrderMP } = require('../controllers/Payments/Orders/createOrder')
+
+
 
 const router = Router();
 
@@ -18,6 +25,15 @@ router.post('/create', authenticateTokenAdmin,  createProduct)
 router.put('/update/:id', authenticateTokenAdmin, updateProduct)
 
 router.delete('/delete/:id', authenticateTokenAdmin, deleteProduct)
+
+// RUTAS PARA MERCADO PAGO
+
+router.post('/payments', payment)
+
+router.get('/order', getOrder)
+
+router.post('/createOrder', createOrderMP)
+
 
 
 module.exports = router;
