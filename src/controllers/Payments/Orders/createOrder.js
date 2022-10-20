@@ -10,8 +10,10 @@ const createOrderMP = async (req, res) => {
             merchant_order_id,
         })
         newOrder.addUser(user)
+        res.send('Orden creada correctamente')
     } catch (error) {
-        res.status(404).send(error)
+        console.log(error)
+        // res.status(404).send(error)
     }
 }
 
