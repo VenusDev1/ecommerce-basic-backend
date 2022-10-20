@@ -11,6 +11,8 @@ const usersRoute = require ('./user');
 const {payment} = require('../controllers/Payments/payments')
 const {getOrder} = require('../controllers/Payments/Orders/getOrder')
 const { createOrderMP } = require('../controllers/Payments/Orders/createOrder')
+const { getUserOrders } = require('../controllers/Payments/Orders/getUserOrders')
+const {getAdminOrders} = require('../controllers/Payments/Orders/getAllOrders')
 
 
 
@@ -33,6 +35,10 @@ router.post('/payments', payment)
 router.get('/order', getOrder)
 
 router.post('/createOrder', createOrderMP)
+
+router.get('/allOrders', getAdminOrders)
+
+router.get('/userOrder/:userId', getUserOrders)
 
 
 
